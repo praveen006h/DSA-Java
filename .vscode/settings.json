@@ -1,0 +1,5 @@
+{
+    "java.diagnostics.errorLevel": {
+        "packageNotMatchFolder": "ignore"
+    }
+}

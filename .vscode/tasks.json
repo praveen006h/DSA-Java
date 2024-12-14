@@ -4,10 +4,10 @@
         {
             "label": "Compile and Run Currently Opened File",
             "type": "shell",
-            "command": "sh",
+            "command": "cmd",
             "args": [
-                "-c",
-                "javac ${relativeFile} && java ${fileBasenameNoExtension} < input.txt > output.txt"
+                "/c",
+                "javac -d \"_Classes\" \"${fileDirname}\\${fileBasename}\" && java -cp \"_Classes\" ${fileBasenameNoExtension} < \" input.txt\" > \"output.txt\""
             ],
             "presentation": {
                 "reveal": "never"
@@ -17,7 +17,7 @@
                 "isDefault": true
             },
             "problemMatcher": {
-                "owner": "py",
+                "owner": "java",
                 "fileLocation": [
                     "relative",
                     "${workspaceRoot}"
