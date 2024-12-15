@@ -1,1 +1,1 @@
-Number of Digits: 6
+Reverse: 213213

@@ -1,5 +1,11 @@
 {
     "java.diagnostics.errorLevel": {
         "packageNotMatchFolder": "ignore"
-    }
+    },
+
+    "java.project.validation.enabled": false,
+    "java.project.package.validation.enabled": false,
+    "java.project.importOnFirstTimeStartup": "disabled",
+    "java.errors.incompleteClasspath.severity": "ignore"
+    
 }
