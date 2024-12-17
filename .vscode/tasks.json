@@ -10,7 +10,7 @@
                 "javac -d \"_Classes\" \"${fileDirname}\\${fileBasename}\" && java -cp \"_Classes\" ${fileBasenameNoExtension} < \" input.txt\" > \"output.txt\""
             ],
             "presentation": {
-                "reveal": "always"
+                "reveal": "never"
             },
             "group": {
                 "kind": "build",
