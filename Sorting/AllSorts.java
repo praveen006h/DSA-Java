@@ -39,7 +39,6 @@ public class AllSorts {
         }
     }
 
-
     public static void merge(int[] arr, int st, int mid, int end){
         int p1 = st, p2=mid+1;
         int[] temp = new int[end-st+1];
@@ -91,6 +90,65 @@ public class AllSorts {
         }
     }
 
+    public static void recurBubSort(int[] arr, int n){
+        if(n==1) return;
+        boolean didSwap = false; 
+        for(int i=0; i<n-1; i++){
+            if(arr[i]>arr[i+1]){
+                didSwap = true;
+                int t = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = t;
+            }
+        }
+        if(!didSwap) return;
+        recurBubSort(arr, n-1);
+    }
+
+    public static void recurInsSort(int[] arr, int st){
+        if(st==arr.length) return;
+        int p = st;
+        while(p>0 && arr[p-1]>arr[p]){
+            int t = arr[p];
+            arr[p] = arr[p-1];
+            arr[p-1] = t;
+            p--;
+        }
+        recurInsSort(arr, st+1);
+    }
+
+    public static int quick(int[] arr, int low, int high){
+        int pivot = arr[low];
+        int i=low, j=high;
+        
+        while (i<j) {
+            while (arr[i]<=pivot && i<=high-1) {
+                i++;
+            }
+            while (arr[j]>pivot && j>=low+1) {
+                j--;
+            }
+            if(i<j){
+                int t = arr[i];
+                arr[i] = arr[j];
+                arr[j] = t;
+            }
+        }
+
+        int t = arr[low];
+        arr[low] = arr[j];
+        arr[j] = t;
+
+        return j;
+    }
+
+    public static void quickSort(int[] arr, int low, int high){
+        if(low >= high) return;
+        int partInd = quick(arr, low, high);
+        quickSort(arr, low, partInd-1);
+        quickSort(arr, partInd+1, high);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -101,7 +159,11 @@ public class AllSorts {
         //selectionSort(arr);
         //bubbleSort(arr);
         //insertionSort(arr);
-        mergeSort(arr, 0, n-1);
+        //mergeSort(arr, 0, n-1);
+        //recurBubSort(arr, n);
+        //recurInsSort(arr, 0);
+        quickSort(arr, 0, n-1);
+
         //pushZerosToEnd(arr);
 
         for(int i: arr) System.out.print(i+", ");
